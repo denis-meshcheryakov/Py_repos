@@ -9,7 +9,7 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 То есть эту задачу можно решить без использования условия if и циклов for/while.
-"""
+
 
 access_template = [
     "switchport mode access",
@@ -24,3 +24,33 @@ trunk_template = [
     "switchport mode trunk",
     "switchport trunk allowed vlan {}",
 ]
+"""
+
+mode = input('Введите режим работы интерфейса (access/trunk):')
+interface = input('Введите тип и номер интерфейса:')
+
+mode = mode.count('trunk')
+
+modes = [
+['Введите номер VLAN:'],
+['Введите разрешенные VLANы:']
+]
+
+
+vlans = input(' '.join(modes[mode]))
+
+config_template = [
+['switchport mode access',
+ 'switchport access vlan {}',
+ 'switchport nonegotiate',
+ 'spanning-tree portfast',
+ 'spanning-tree bpduguard enable'],
+['switchport trunk encapsulation dot1q',
+ 'switchport mode trunk',
+ 'switchport trunk allowed vlan {}']
+]
+
+
+print('\n' * 2)
+print('interface {}'.format(interface))
+print('\n'.join(config_template[mode]).format(vlans))
