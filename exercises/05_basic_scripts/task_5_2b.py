@@ -13,7 +13,7 @@
 from sys import argv
 
 network = argv[1:]
-network = ' '.join(network)
+network = '\n'.join(network)
 ip = network[:network.find('/')]
 ip = ip.split('.')
 oct1 = int(ip[0])
