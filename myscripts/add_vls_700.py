@@ -3,8 +3,14 @@
 #
 #  "add_vls_700.py"
 #  
-network = input('Введите адрес сети с префиксом(Например 10.1.1.0/25):')
-net = network.split()
+net = ""
+while True:
+    network = input('Введите адрес сети с префиксом(Например 10.1.1.0/25):')
+    if network:
+        net += network + " "
+    else:
+        break      
+net = net.split()
 netip = []
 netmask = []
 netip2 = []
