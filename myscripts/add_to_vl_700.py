@@ -1,11 +1,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-#  "add_vls_700.py"
+#  "add_to_vl_700.py"
 #  
+'''Преременная "n" добавляет слово "no" в строку вывода "ip address 10.69.240.1 255.255.255.128 secondary" 
+получается так: "no ip address 10.69.240.1 255.255.255.128 secondary" '''
+
+n = input('''Если хотите добавить подсеть, нажмите Enter
+Введите подсети и нажмите Enter:
+________________________________________________________
+
+Если хотите удалить подсеть, введите "no" и нажмите Enter
+Введите подсети и нажмите Enter:
+
+<<<<<<<<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+''')
 net = ""
 while True:
-    network = input('Введите адрес сети с префиксом(Например 10.1.1.0/25):')
+    network = input('*')
     if network:
         net += network + " "
     else:
@@ -46,10 +58,13 @@ for maskint in netmask:
     
 result = list(zip(netip2, netmask2))
 
-print('''conf t
+print('''
+conf t
 int vl 700''')
 for ip, mask in result:
-    print('ip address {} {} secondary'.format(ip, mask))
+    print('{} ip address {} {} secondary'.format(n, ip, mask))
     
 print('''end
-wr''')    
+wr
+
+''')    
