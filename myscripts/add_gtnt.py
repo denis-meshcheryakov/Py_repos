@@ -55,15 +55,6 @@ item_880_5 = 'neighbor {} filter-list 50 out\n'.format(ce_ip)
 item_880_6 = 'neighbor {} send-community both\n'.format(ce_ip)
 item_880_7 = 'neighbor {} soft-reconfiguration inbound\n'.format(ce_ip)
 
-# Cisco 2800
-'''item_2800_1 = 'neighbor {} remote-as 65301\n'.format(ce_ip)
-item_2800_2 = 'neighbor {} local-as 65524\n'.format(ce_ip)
-item_2800_3 = 'neighbor {} route-map rm-sp2-in in\n'.format(ce_ip)
-item_2800_4 = 'neighbor {} route-map rm-sp2-out out\n'.format(ce_ip)
-item_2800_5 = 'neighbor {} filter-list 50 out\n'.format(ce_ip)
-item_2800_6 = 'neighbor {} send-community both\n'.format(ce_ip)
-item_2800_7 = 'neighbor {} soft-reconfiguration inbound\n'.format(ce_ip)'''
-
 # MSR-930
 src_list_930.pop(218)
 src_list_930.insert(218, item_int_vl_700)
