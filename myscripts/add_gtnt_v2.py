@@ -20,8 +20,8 @@ pe_ip = '.'.join(pe_ip)
 src_file_930 = '/var/share/config/rt-{}.hp-msr930.txt'.format(number_of_mag)
 dest_file_930 = '/var/share/config/rt-{}.hp-msr930-gtnt.txt'.format(number_of_mag)
 src_file_880 = '/var/share/config/rt-{}.cisco-880.txt'.format(number_of_mag)
-dest_file_880 = '/var/share/config/rt-{}.cisco-880.txt'.format(number_of_mag)
-src_file_2800 = '/var/share/config/rt-{}.cisco-2800-gtnt.txt'.format(number_of_mag)
+dest_file_880 = '/var/share/config/rt-{}.cisco-880-gtnt.txt'.format(number_of_mag)
+src_file_2800 = '/var/share/config/rt-{}.cisco-2800.txt'.format(number_of_mag)
 dest_file_2800 = '/var/share/config/rt-{}.cisco-2800-gtnt.txt'.format(number_of_mag)
 
 with open(src_file_930) as src, open(dest_file_930, 'a') as dest:
