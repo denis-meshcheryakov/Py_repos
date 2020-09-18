@@ -33,6 +33,49 @@ with open(src_file_930) as src, open(dest_file_930, 'a') as dest:
         elif line.startswith('peer 10.0.0.1'):
             line = line.replace('10.0.0.1', pe_ip)
             dest.write(line)
+        elif line.endswith('64996'):
+            line = line.replace('64996', '65301')
+            dest.write(line)
+        elif line.endswith('64995'):
+            line = line.replace('64995', '65524')
+            dest.write(line)
+        else:
+            dest.write(line)
+            
+with open(src_file_880) as src, open(dest_file_880, 'a') as dest:
+    lines = src.readlines()
+    for line in lines:
+        if line.startswith('ip address 10.0.0.2'):
+            line = line.replace('10.0.0.2', ce_ip)
+            dest.write(line)
+        elif line.startswith('neighbor 10.0.0.1'):
+            line = line.replace('10.0.0.1', pe_ip)
+            dest.write(line)
+        elif line.endswith('64996'):
+            line = line.replace('64996', '65301')
+            dest.write(line)
+        elif line.endswith('64995'):
+            line = line.replace('64995', '65524')
+            dest.write(line)
+        else:
+            dest.write(line)
+            
+with open(src_file_2800) as src, open(dest_file_2800, 'a') as dest:
+    lines = src.readlines()
+    for line in lines:
+        if line.startswith('ip address 10.0.0.2'):
+            line = line.replace('10.0.0.2', ce_ip)
+            dest.write(line)
+        elif line.startswith('neighbor 10.0.0.1'):
+            line = line.replace('10.0.0.1', pe_ip)
+            dest.write(line)
+        elif line.endswith('64996'):
+            line = line.replace('64996', '65301')
+            dest.write(line)
+        elif line.endswith('64995'):
+            line = line.replace('64995', '65524')
+            dest.write(line)
         else:
             dest.write(line)
 
+print('<<<<<<<<<<JOB DONE>>>>>>>>>>')
