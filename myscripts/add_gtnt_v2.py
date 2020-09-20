@@ -5,7 +5,7 @@
 #
 network = input('Введите адрес сети с префиксом(Например 10.1.1.0/30):')
 number_of_mag = input('Введите номер магазина: ')
-ip = network[:network.find('/')]
+ip, _ = network.split('/')
 ip = ip.split('.')
 oct1 = int(ip[0])
 oct2 = int(ip[1])
