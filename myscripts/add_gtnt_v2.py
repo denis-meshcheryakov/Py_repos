@@ -27,17 +27,17 @@ dest_file_2800 = '/var/share/config/rt-{}.cisco-2800-gtnt.txt'.format(number_of_
 with open(src_file_930) as src, open(dest_file_930, 'a') as dest:
     lines = src.readlines()
     for line in lines:
-        if line.startswith('ip address 10.0.0.2'):
+        if 'ip address 10.0.0.2' in line:
             line = line.replace('10.0.0.2', ce_ip)
             dest.write(line)
-        elif line.startswith('peer 10.0.0.1'):
+        elif 'peer 10.0.0.1' in line and '64996' in line:
+            line = f"peer {pe_ip} as-number 65301\n"
+            dest.write(line)
+        elif 'peer 10.0.0.1' in line and '64995' in line:
+            line = f"peer {pe_ip} fake-as 65524\n"
+            dest.write(line)
+        elif 'peer 10.0.0.1' in line:
             line = line.replace('10.0.0.1', pe_ip)
-            dest.write(line)
-        elif line.endswith('64996'):
-            line = line.replace('64996', '65301')
-            dest.write(line)
-        elif line.endswith('64995'):
-            line = line.replace('64995', '65524')
             dest.write(line)
         else:
             dest.write(line)
