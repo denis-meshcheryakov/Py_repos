@@ -31,10 +31,10 @@ with open(src_file_930) as src, open(dest_file_930, 'a') as dest:
             line = line.replace('10.0.0.2', ce_ip)
             dest.write(line)
         elif 'peer 10.0.0.1' in line and '64996' in line:
-            line = f"peer {pe_ip} as-number 65301\n"
+            line = "peer {} as-number 65301\n".format(pe_ip)
             dest.write(line)
         elif 'peer 10.0.0.1' in line and '64995' in line:
-            line = f"peer {pe_ip} fake-as 65524\n"
+            line = "peer {} fake-as 65524\n".format(pe_ip)
             dest.write(line)
         elif 'peer 10.0.0.1' in line:
             line = line.replace('10.0.0.1', pe_ip)
@@ -45,17 +45,17 @@ with open(src_file_930) as src, open(dest_file_930, 'a') as dest:
 with open(src_file_880) as src, open(dest_file_880, 'a') as dest:
     lines = src.readlines()
     for line in lines:
-        if line.startswith('ip address 10.0.0.2'):
+        if 'ip address 10.0.0.2' in line:
             line = line.replace('10.0.0.2', ce_ip)
             dest.write(line)
-        elif line.startswith('neighbor 10.0.0.1'):
+        elif 'neighbor 10.0.0.1' in line and '64996' in line:
+            line = "neighbor {} remote-as 65301\n".format(pe_ip)
+            dest.write(line)
+        elif 'neighbor 10.0.0.1' in line and '64995' in line:
+            line = "neighbor {} local-as 65524\n".format(pe_ip)
+            dest.write(line)
+        elif 'neighbor 10.0.0.1' in line:
             line = line.replace('10.0.0.1', pe_ip)
-            dest.write(line)
-        elif line.endswith('64996'):
-            line = line.replace('64996', '65301')
-            dest.write(line)
-        elif line.endswith('64995'):
-            line = line.replace('64995', '65524')
             dest.write(line)
         else:
             dest.write(line)
@@ -63,17 +63,17 @@ with open(src_file_880) as src, open(dest_file_880, 'a') as dest:
 with open(src_file_2800) as src, open(dest_file_2800, 'a') as dest:
     lines = src.readlines()
     for line in lines:
-        if line.startswith('ip address 10.0.0.2'):
+        if 'ip address 10.0.0.2' in line:
             line = line.replace('10.0.0.2', ce_ip)
             dest.write(line)
-        elif line.startswith('neighbor 10.0.0.1'):
+        elif 'neighbor 10.0.0.1' in line and '64996' in line:
+            line = "neighbor {} remote-as 65301\n".format(pe_ip)
+            dest.write(line)
+        elif 'neighbor 10.0.0.1' in line and '64995' in line:
+            line = "neighbor {} local-as 65524\n".format(pe_ip)
+            dest.write(line)
+        elif 'neighbor 10.0.0.1' in line:
             line = line.replace('10.0.0.1', pe_ip)
-            dest.write(line)
-        elif line.endswith('64996'):
-            line = line.replace('64996', '65301')
-            dest.write(line)
-        elif line.endswith('64995'):
-            line = line.replace('64995', '65524')
             dest.write(line)
         else:
             dest.write(line)
