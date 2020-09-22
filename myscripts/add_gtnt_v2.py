@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-#  "add_gtnt_v2.py"
+#  "add_gtnt.py"
 #
 network = input('Введите адрес сети с префиксом(Например 10.1.1.0/30):')
 number_of_mag = input('Введите номер магазина: ')
@@ -29,16 +29,16 @@ result_lst_2800 = []
 with open(src_file_930) as src: 
     for line in src:
         if 'ip address 10.0.0.2' in line:
-            line = line.replace('10.0.0.2', ce_ip)
+            line = line.replace('10.0.0.2', pe_ip)
             result_lst_930.append(line)
         elif 'peer 10.0.0.1' in line and '64996' in line:
-            line = "peer {} as-number 65301\n".format(pe_ip)
+            line = "peer {} as-number 65301\n".format(ce_ip)
             result_lst_930.append(line)
         elif 'peer 10.0.0.1' in line and '64995' in line:
-            line = "peer {} fake-as 65524\n".format(pe_ip)
+            line = "peer {} fake-as 65524\n".format(ce_ip)
             result_lst_930.append(line)
         elif 'peer 10.0.0.1' in line:
-            line = line.replace('10.0.0.1', pe_ip)
+            line = line.replace('10.0.0.1', ce_ip)
             result_lst_930.append(line)
         else:
             result_lst_930.append(line)
@@ -49,16 +49,16 @@ with open(src_file_930, 'w') as dest:
 with open(src_file_880) as src:
     for line in src:
         if 'ip address 10.0.0.2' in line:
-            line = line.replace('10.0.0.2', ce_ip)
+            line = line.replace('10.0.0.2', pe_ip)
             result_lst_880.append(line)
         elif 'neighbor 10.0.0.1' in line and '64996' in line:
-            line = "neighbor {} remote-as 65301\n".format(pe_ip)
+            line = "neighbor {} remote-as 65301\n".format(ce_ip)
             result_lst_880.append(line)
         elif 'neighbor 10.0.0.1' in line and '64995' in line:
-            line = "neighbor {} local-as 65524\n".format(pe_ip)
+            line = "neighbor {} local-as 65524\n".format(ce_ip)
             result_lst_880.append(line)
         elif 'neighbor 10.0.0.1' in line:
-            line = line.replace('10.0.0.1', pe_ip)
+            line = line.replace('10.0.0.1', ce_ip)
             result_lst_880.append(line)
         else:
             result_lst_880.append(line)
@@ -69,20 +69,24 @@ with open(src_file_880, 'w') as dest:
 with open(src_file_2800) as src:
     for line in src:
         if 'ip address 10.0.0.2' in line:
-            line = line.replace('10.0.0.2', ce_ip)
+            line = line.replace('10.0.0.2', pe_ip)
             result_lst_2800.append(line)
         elif 'neighbor 10.0.0.1' in line and '64996' in line:
-            line = "neighbor {} remote-as 65301\n".format(pe_ip)
+            line = "neighbor {} remote-as 65301\n".format(ce_ip)
             result_lst_2800.append(line)
         elif 'neighbor 10.0.0.1' in line and '64995' in line:
-            line = "neighbor {} local-as 65524\n".format(pe_ip)
+            line = "neighbor {} local-as 65524\n".format(ce_ip)
             result_lst_2800.append(line)
         elif 'neighbor 10.0.0.1' in line:
-            line = line.replace('10.0.0.1', pe_ip)
+            line = line.replace('10.0.0.1', ce_ip)
             result_lst_2800.append(line)
         else:
             result_lst_2800.append(line)
 with open(src_file_2800, 'w') as dest:
     dest.writelines(result_lst_2800)
 
-print('<<<<<<<<<<CONFIGS WITH GTNT DONE>>>>>>>>>>')
+print('''
+<<<<<<<<<<----------------------->>>>>>>>>>
+          CONFIG'S WITH GTNT DONE
+<<<<<<<<<<_______________________>>>>>>>>>>
+''')
